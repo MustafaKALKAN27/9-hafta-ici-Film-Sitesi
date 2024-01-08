@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+* {
+  /* tüm sayfa için kullan*/
+  margin: 0; /*sayfa boşluğunu sıfırla*/
+}
+body {
+  font-family: "Electrolize", sans-serif;
+}
+.container {
+  background-color: black;
+  color: white;
+}
+/*!üst bar start*/
+.navbar {
+  background-color: black;
+  height: 60px;
+  color: white;
+  position: sticky; /*üst barı sabitleme*/
+  top: 0;
+  z-index: 1;
+}
+.navbar-wrapper {
+  display: flex; /*navbar elemanları yan yana getirme*/
+  justify-content: space-between; /*elemanların arasına boşluk verme*/
+  align-items: center; /* elemanları yatayda hizalama*/
+  height: 100%; /*logo yu dikeyde ortalama*/
+  padding: 0 50px; /*yukarıdn aşağıdan 0 sğdn soldan 50 px boşluk*/
+}
+.logo {
+  color: rgb(255, 70, 70);
+}
+.menu-list {
+  display: flex;
+  list-style: none; /*liste elemanlarının önündeki noktayı kaldır*/
+  column-gap: 30px; /*menu elemlarının arasını 30 px yap*/
+  padding: 0;
+}
+.menu-list-item {
+  cursor: pointer;
+}
+.menu-list-item:hover {
+  font-weight: bold;
+}
+.menu-list-item.active {
+  font-weight: bold;
+}
+.profile-container {
+  display: flex; /*elemanları yan yana getirme*/
+  align-items: center; /*elemanları yan yana hizalama*/
+  column-gap: 20px; /*elemanların arasını 20 px yapm*/
+}
+.profile-picture {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-text-container {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  line-height: 1; /*satırda hizalama*/
+}
+.toggle {
+  width: 40px;
+  height: 20px;
+  background-color: white;
+  position: relative;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.toggle-icon {
+  color: goldenrod;
+}
+.toggle-ball {
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute; /*elemanı üste al*/
+  right: 1px;
+  transition: .5s ease all;
+}
+/*! navbar end*/
+
+/*! sidebar start*/
+.sidebar {
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 50px;
+  display: flex;
+  flex-direction: column; /*elemanları alt alta getir*/
+  align-items: center; /*elemanları ortala*/
+  padding-top: 60px; /*yukarıdan 60 px uzaklaş*/
+  row-gap: 40px; /*elemanların arasını 40 px aç*/
+  position: fixed; /*elemanı sabitleme scroll gitsede*/
+  top: 0;
+}
+
+.sidebar i {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+/*! sidebar end*/
+
+/*! featured start*/
+.content-wrapper {
+  margin-left: 50px;
+}
+.featured-content {
+  background: url("img/spiderman.jpg");
+  padding: 50px;
+  height: calc(100vh - 160px);
+  background-size: 100% 100%;
+}
+.featured-title {
+  width: 400px;
+}
+.featured-desc {
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.5 /*saydamlık*/);
+  padding: 10px; /*iç her yerden 10 px boşluk*/
+  margin: 30px 0; /*yukarıdan aşağıdan 30 px uzaklaş*/
+  color: black;
+}
+.featured-buttons {
+  display: flex;
+  gap: 20px; /*butonlar arası boşluk*/
+  flex-wrap: wrap;
+}
+.featured-buttons button {
+  padding: 10px 25px; /*yukarıdan aşağıdan 10 px soldan sağdan 25 px boşluk*/
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  column-gap: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.featured-buttons .info-button {
+  background-color: rgba(145, 142, 142, 0.5);
+  color: white;
+}
+/*! featured end*/
+.movie-list-filter {
+  margin: 20px 0 20px 50px;
+  padding: 20px;
+}
+.movie-list-filter select {
+  background-color: black;
+  color: white;
+  padding: 7px 0;
+  width: 125px;
+}
+
+.movie-list-container {
+  margin-left: 70px; /*soldan 70 piksel boşluk ver*/
+}
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+  height: 300px;
+  display: flex;
+  align-items: center; /*elemanları yan yana getir*/
+  column-gap: 30px;/*aralarını aç*/
+  transform: translateX(0);
+  transition: 1s all ease-in-out;/*1 saniyede kaydır*/
+}
+.movie-list-wrapper{
+  overflow: hidden;
+  position: relative;
+}
+.movie-item {
+  position: relative;
+}
+.movie-item:hover .movie-item-title,
+.movie-item:hover .movie-item-buttons
+{
+  opacity: 1;
+}
+.movie-item:hover .movie-item-img
+{
+  transform: scale(1.2);
+  margin: 0 30px;
+  opacity: 0.5;
+}
+.movie-item-img {
+  width: 270px;
+  height: 200px;
+  object-fit: cover;
+  transition: 1s all ease;
+}
+.movie-item-title {
+  background-color: rgb(40, 40, 40, 0.4);
+  padding: 0 10px;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10%;/*üstten uzaklaş*/
+  left: 50px;
+  opacity: 0;
+  
+}
+.movie-item-buttons {
+  background-color: rgb(40, 40, 40, 0.4);
+  padding: 10px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 10%;/*aşağıdan uzaklaş*/
+  left: 50px;
+  display: flex;
+  column-gap: 20px;
+  opacity: 0;
+  transition: 1s all ease;
+}
+.movie-item-buttons i{
+  cursor: pointer;
+  opacity: .5;
+  font-size: 20px; 
+  transition: 0.5s all ease; /*her bir buton girsin*/
+}
+.movie-item-buttons i:hover{
+  opacity: 1;
+}
+.arrow{
+  width: 100px;
+  display: flex;
+  font-size: 120px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  opacity: .5;
+  transition: 0.5s all ease;
+  cursor: pointer;
+}
+.arrow:hover{
+opacity: 1;
+}
+.container.active{
+  background-color: white;
+}
+.navbar.active{
+  background-color: white;
+  color: black;
+}
+.sidebar.active{
+  background-color: white;
+}
+.sidebar i.active{
+  color: black;
+}
+.toggle.active{
+  background-color: black;
+}
+.toggle-ball.active{
+  background-color: white;
+  transform: translateX(-20px);
+}
+.movie-list-filter select.active{
+  background-color: white;
+  color: black;
+}
+h1.active{
+  color: black;
+}
+
+@media only screen and (max-width: 800px){
+  .menu-container{
+    display: none;
+  }  
+  .featured-content{
+    height: 50vh;
+  }
+  .featured-title{
+    width: 200px;
+  }
+  .featured-desc{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    max-width: 200px;
+    padding: 0;
+  }
+}
