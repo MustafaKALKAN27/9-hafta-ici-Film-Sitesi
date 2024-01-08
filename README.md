@@ -1,4 +1,4 @@
-## 9-hafta-ici-Amazon
+## 9-hafta-ici-Film Sitesi
 
 -HTML, CSS kullanılarak tasarlandı
 
